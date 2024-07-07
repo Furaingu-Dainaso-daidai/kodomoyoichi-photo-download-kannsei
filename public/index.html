@@ -84,26 +84,34 @@
 
     <script>
         document.getElementById('photo-form').addEventListener('submit', function(event) {
-            event.preventDefault();
+            event.preventDefault();  // フォームのデフォルトの送信動作をキャンセルする
 
-            const photoNumber = document.getElementById('photo-number').value;
-            const photoContainer = document.getElementById('photo-container');
+            const photoNumber = document.getElementById('photo-number').value;  // 入力された写真番号を取得
+            const photoContainer = document.getElementById('photo-container');  // 写真を表示するコンテナを取得
 
+            // Fetch APIを使用して、サーバーから写真のURLを取得
             fetch(`https://httpskodomoyoichi-shashin-download.daigo7camera.workers.dev/?number=${photoNumber}`)
-                .then(response => response.json())
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');  // レスポンスがOKでない場合、エラーをスロー
+                    }
+                    return response.json();  // レスポンスをJSONとして解析
+                })
                 .then(data => {
                     if (data.url) {
+                        // 取得したURLを使用して、写真とダウンロードリンクを表示
                         photoContainer.innerHTML = `<img src="${data.url}" alt="写真" style="max-width: 100%;"><br><a href="${data.url}" download>ダウンロード</a>`;
                     } else {
-                        photoContainer.innerHTML = `<p>リンクが見つかりませんでした。もう一度入力してください。</p>`;
+                        photoContainer.innerHTML = `<p>リンクが見つかりませんでした。もう一度入力してください。</p>`;  // URLが見つからない場合のメッセージ
                     }
                 })
                 .catch(error => {
+                    // エラーが発生した場合のメッセージ
                     photoContainer.innerHTML = `<p>エラーが発生しました。再読み込み等をしてください。解決されない場合は、「問い合わせ等」から問い合わせてください。</p>`;
+                    console.error('There has been a problem with your fetch operation:', error);  // コンソールにエラーメッセージを表示
                 });
         });
     </script>
-
 </body>
 <h2 class="setumei">このサービスのすべては、《8月下旬ごろ》に取り消しされます。</h2>
 <h2 class="setumei">早めにダウンロードをお願いします。</h2>
