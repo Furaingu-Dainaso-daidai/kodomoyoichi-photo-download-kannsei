@@ -15,34 +15,36 @@
             font-size: 5vmax;
             color: #000000;
             animation: bounce 0.987s infinite;
-        }
+        }        
         a, a:visited {
             color: #024ad0;
             font-size: 2vmax;
             font-family: Arial, sans-serif;
             font-weight: normal;
         }
-        h2.setumei, h2.ookinasetumei {
+        h2.setumei {
+            font-size: 2.3vmax;
             color: #000000;
             margin-top: -0.5em;
         }
-        h2.setumei {
-            font-size: 2.3vmax;
-        }
         h2.ookinasetumei {
             font-size: 3.2vmax;
+            color: #000000;
+            margin-top: -0.5em;
         }
-        h4.tyuui, h4.tyuui1 {
+        h4.tyuui {
             color: #000000;
             margin-top: 1em;
             font-family: Georgia, serif;
             font-size: 2vmax;
-            font-weight: bold;
+            font-weight: bold
         }
         h4.tyuui1 {
-            font-family: Arial, sans-serif;
-            font-weight: normal;
+            color: #000000;
             margin-top: -0.1em;
+            font-family: Arial, sans-serif;
+            font-size: 2vmax;
+            font-weight: normal
         }
         @keyframes bounce {
             0%, 100% {
@@ -55,7 +57,7 @@
         input, button {
             margin: 5px;
             font-size: 2.5vmax;
-            width: 70vw;
+            width: 70vmax;
             padding: 2vmax;
         }
         form {
@@ -66,9 +68,6 @@
             color: rgb(255, 255, 255);
             padding: 12.5px;
             font-size: 4vmax;
-        }
-        #photo-container img {
-            max-width: 100%;
         }
     </style>
 </head>
@@ -83,7 +82,28 @@
     </form>
     <div id="photo-container"></div>
 
-    <script src="script.js"></script>
+    <script>
+        document.getElementById('photo-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const photoNumber = document.getElementById('photo-number').value;
+            const photoContainer = document.getElementById('photo-container');
+
+            fetch(`/.netlify/functions/get-photo?number=${photoNumber}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.url) {
+                        photoContainer.innerHTML = `<img src="${data.url}" alt="写真" style="max-width: 100%;"><br><a href="${data.url}" download>ダウンロード</a>`;
+                    } else {
+                        photoContainer.innerHTML = `<p>リンクが見つかりませんでした。もう一度入力してください。</p>`;
+                    }
+                })
+                .catch(error => {
+                    photoContainer.innerHTML = `<p>エラーが発生しました。再読み込み等をしてください。解決されない場合は、「問い合わせ等」から問い合わせてください。</p>`;
+                });
+        });
+    </script>
+
 </body>
 <h2 class="setumei">このサービスのすべては、《8月下旬ごろ》に取り消しされます。</h2>
 <h2 class="setumei">早めにダウンロードをお願いします。</h2>
