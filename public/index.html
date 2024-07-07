@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>子ども夜市用写真ダウンロードサイト(簡易版)</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: rgb(255, 170, 43);
+            text-align: center;
+            margin-top: 1%;
+        }
+        h1.title {
+            font-size: 5vmax;
+            color: #000000;
+            animation: bounce 0.987s infinite;
+        }
+        a, a:visited {
+            color: #024ad0;
+            font-size: 2vmax;
+            font-family: Arial, sans-serif;
+            font-weight: normal;
+        }
+        h2.setumei, h2.ookinasetumei {
+            color: #000000;
+            margin-top: -0.5em;
+        }
+        h2.setumei {
+            font-size: 2.3vmax;
+        }
+        h2.ookinasetumei {
+            font-size: 3.2vmax;
+        }
+        h4.tyuui, h4.tyuui1 {
+            color: #000000;
+            margin-top: 1em;
+            font-family: Georgia, serif;
+            font-size: 2vmax;
+            font-weight: bold;
+        }
+        h4.tyuui1 {
+            font-family: Arial, sans-serif;
+            font-weight: normal;
+            margin-top: -0.1em;
+        }
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+        input, button {
+            margin: 5px;
+            font-size: 2.5vmax;
+            width: 70vw;
+            padding: 2vmax;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        #thanks-message {
+            background-color: #008000;
+            color: rgb(255, 255, 255);
+            padding: 12.5px;
+            font-size: 4vmax;
+        }
+        #photo-container img {
+            max-width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div id="thanks-message">ご来店ありがとうございました！</div>
+    <h1 class="title">写真をダウンロード！！</h1>
+    <h2 class="ookinasetumei">「写真番号」を入力すると写真がダウンロードできます。</h2>
+    <h2 class="setumei">「ダウンロードサイトへ」をクリックし、パスワードの入力をしてください。</h2>
+    <form id="photo-form">
+        <input type="number" id="photo-number" placeholder="写真番号 打ち間違え注意！" required>
+        <button type="submit">ダウンロードサイトへGO ※パスワード入力</button>
+    </form>
+    <div id="photo-container"></div>
+
+    <script src="script.js"></script>
+</body>
+<h2 class="setumei">このサービスのすべては、《8月下旬ごろ》に取り消しされます。</h2>
+<h2 class="setumei">早めにダウンロードをお願いします。</h2>
+<h4 class="tyuui">詳細の日付は、後日表記します。<h4></h4>
+<a href="mailto:kodomoyoichi-shashindaunrodo@onlyapp.net?subject=問い合わせ&amp;body=メールを送信すると、メールアドレスが共有されます。ご注意ください。下の2つと、詳細を入力してください。%0d%0a写真番号：%0d%0aパスワード：%0d%0a詳細(ここを、こうしてほしいなど)：">お問い合わせ等</a>
+<h4 class="tyuui1">※内容等を変更した場合のみ、返信します。</h4>
+<h4 class="tyuui">このサイトのURLを、SNS等で拡散・公開しないでください。<h4>
+</html>
