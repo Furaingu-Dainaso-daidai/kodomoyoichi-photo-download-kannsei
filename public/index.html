@@ -89,7 +89,7 @@
             const photoNumber = document.getElementById('photo-number').value;
             const photoContainer = document.getElementById('photo-container');
 
-            fetch(`/.netlify/functions/get-photo?number=${photoNumber}`)
+            fetch(`https://httpskodomoyoichi-shashin-download.daigo7camera.workers.dev/?number=${photoNumber}`)
                 .then(response => response.json())
                 .then(data => {
                     if (data.url) {
