@@ -5,11 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>子ども夜市用写真ダウンロードサイト(簡易版)</title>
     <style>
-        body {
+        body, input, button, a {
             font-family: Arial, sans-serif;
             background-color: rgb(255, 170, 43);
             text-align: center;
             margin-top: 1%;
+            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10"><circle cx="5" cy="5" r="5" fill="black"/></svg>') 5 5, auto;
         }
         h1.title {
             font-size: 5vmax;
@@ -54,12 +55,16 @@
                 transform: translateY(-15px);
             }
         }
-        input, button {
-            margin: 5px;
-            font-size: 2.5vmax;
-            width: 70vw;
-            padding: 2vmax;
+        input {
+        margin: 5px;
+        font-size: 2.5vmax;
+        width: 70vw;
+        padding: 2vmax;
+        cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10"><circle cx="5" cy="5" r="5" fill="black"/></svg>') 5 5, auto;
+        background-color: #ffffff;  /* 背景色を白に変更 */
+        border: 3px solid #000000;
         }
+
         form {
             margin-bottom: 20px;
         }
@@ -69,6 +74,28 @@
             padding: 12.5px;
             font-size: 5vmin;
         }
+
+        /* 新しいボタンのスタイル */
+        .c-btn.practice02 {
+            background: #ff0000;
+            color: #fff;
+            border: none;
+            border-radius: 100px;
+            font-size: 4.5vmin;
+            padding: 1em 2em;
+            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10"><circle cx="5" cy="5" r="5" fill="black"/></svg>') 5 5, auto;
+            transition: .3s cubic-bezier(0.5, 1, 0.89, 1);
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+            margin-top: 0.2em;
+        }
+        .c-btn.practice02:hover {
+            background: #fff;
+            color: #ff0000;
+            transform: scale(1.1);
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
@@ -77,9 +104,10 @@
     <h2 class="ookinasetumei">「写真番号」を入力すると写真がダウンロードできます。</h2>
     <h2 class="setumei">下のフィールドには、写真番号(例:１)を入力してください。</h2>
     <h2 class="setumei">写真番号を打ち間違えた場合は、パスワードで保護されます。</h2>
+    <h2 class="setumei">パソコンでしたほうが楽しいよ！(マウスが…)</h2>
     <form id="photo-form">
         <input type="number" id="photo-number" placeholder="「写真番号」ここに入力" required>
-        <button type="submit">ダウンロードサイトへGO！</button>
+        <button type="submit" class="c-btn practice02">ダウンロードサイトへGO！</button>
     </form>
     <div id="photo-container"></div>
 
@@ -111,13 +139,15 @@
                 });
         });
     </script>
+    <h2 class="setumei">このサービスのすべては、《今年中》に取り消しされます。</h2>
+    <h2 class="setumei">早めにダウンロードをお願いします。</h2>
+    <h4 class="tyuui">詳細の日付は、後日表記します。</h4>
+    <a href="mailto:kodomoyoichi-shashindaunrodo@onlyapp.net?subject=【重要】問い合わせ【このメールは、重要です。】&amp;body=写真番号：%0d%0aパスワード：%0d%0a詳細(ここを、こうしてほしいなど)：%0d%0a%0d%0aこのメールは、重要なときのみ使用してください。%0d%0aメールを送信すると、メールアドレスが共有されます。ご注意ください。このメールアドレスは、使い捨てです。個人メールではありません。個人情報は、最小限の量にすることをお勧め致します。「写真番号」と「パスワード」、「詳細」を入力してください。「写真番号」と「パスワード」が間違っている場合は、すぐに削除します。" target="_blank" rel="noopener noreferrer">お問い合わせ等</a>
+    <h4 class="tyuui1">※非常に重要であるときのみ使用してください。</h4>
+    <h4 class="tyuui1">※このサイトと同じ時に、取り消しされます。</h4>
+    <h4 class="tyuui">このサイトのURLを、SNS等で拡散しないでください。</h4>
+    <footer>
+        <p>© 2024 shashinwotorumise All Rights Reserved.</p>
+    </footer>
 </body>
-<h2 class="setumei">このサービスのすべては、《今年中》に取り消しされます。</h2>
-<h2 class="setumei">早めにダウンロードをお願いします。</h2>
-<h4 class="tyuui">詳細の日付は、後日表記します。<h4></h4>
-<a href="mailto:kodomoyoichi-shashindaunrodo@onlyapp.net?subject=【重要】問い合わせ【このメールは、重要です。】&amp;body=写真番号：%0d%0aパスワード：%0d%0a詳細(ここを、こうしてほしいなど)：%0d%0a%0d%0aこのメールは、重要なときのみ使用してください。%0d%0aメールを送信すると、メールアドレスが共有されます。ご注意ください。このメールアドレスは、使い捨てです。個人メールではありません。個人情報は、最小限の量にすることをお勧め致します。「写真番号」と「パスワード」、「詳細」を入力してください。「写真番号」と「パスワード」が間違っている場合は、すぐに削除します。" target="_blank" rel="noopener noreferrer">お問い合わせ等</a>
-<h4 class="tyuui1">※非常に重要であるときのみ使用してください。</h4>
-<h4 class="tyuui1">※このサイトと同じ時に、取り消しされます。</h4>
-<h4 class="tyuui">このサイトのURLを、SNS等で拡散しないでください。<h4>
- © 2024 shashinwotorumise All Rights Reserved.
 </html>
