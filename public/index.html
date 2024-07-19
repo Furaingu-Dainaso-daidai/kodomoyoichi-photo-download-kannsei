@@ -129,8 +129,8 @@
                 })
                 .then(data => {
                     if (data.url) {
-                        // 取得したURLを新しいタブで開く
-                        window.open(data.url, '_blank');
+                        // 取得したURLを現在のタブで開く
+                        window.location.href = data.url;
                     } else {
                         alert('リンクが見つかりませんでした。もう一度入力してください。');  // URLが見つからない場合のメッセージ
                     }
